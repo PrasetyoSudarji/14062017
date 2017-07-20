@@ -60,62 +60,63 @@ echo "<div class='container' style='background:#fff;min-height:500px; box-shadow
 			<tbody>
 				
 					";
+					$no = 1;
 					foreach($sumur->result_array() as $listsumur){
-					echo "<tr><!--
-							<td> <!-- id Liquid
-								<input type='text' class='form-control' name='liquid".$id_liquid."' value=".$id_liquid." invisible>
-							</td>
-							<td> <!-- id gas
-								<input type='text' class='form-control' name='gas".$id_gas."' value=".$id_gas." invisible>
-							</td>
-							-->
+					
+					echo "<tr>
+							<!-- id Liquid -->
+								<input type='hidden' class='form-control' name='liquid".$no."' value=".$id_liquid.">
+							<!-- id gas -->
+								<input type='hidden' class='form-control' name='gas".$no."' value=".$id_gas.">
+							<!-- id pt -->
+								<input type='hidden' class='form-control' name='pt".$no."' value=".$id_pt.">
 							<td> <!-- tanggal -->
 								<div class='input-group date' data-provide='datepicker' data-date-format='yyyy-mm-dd'>
-								    <input type='text' class='form-control' name='tanggal' value='".date('Y-m-d')."'>
+								    <input type='text' class='form-control' name='tanggal".$no."' value='".$today."'>
 								    <div class='input-group-addon'>
 								        <span class='fa fa-calendar'></span>
 								    </div>
 								</div>
 							</td>
 							<td> <!-- sumur -->
-								<input type='text' class='form-control' name='choke' value=".$listsumur['id'].">
+								<input type='text' class='form-control' name='well".$no."' value=".$listsumur['id']." readonly>
 							</td>
 							<td> <!-- choke -->
-								<input type='text' class='form-control' name='choke'>
+								<input type='text' class='form-control' name='choke".$no."'>
 							</td> 	
 							<td> <!-- blpd -->
-								<input type='text' class='form-control' name='blpd'>
+								<input type='text' class='form-control' name='blpd".$no."'>
 							</td>
 							<td> <!-- bopd -->
-								<input type='text' class='form-control' name='bopd'>
+								<input type='text' class='form-control' name='bopd".$no."'>
 							</td>
 							<td> <!-- kadar air -->
-								<input type='text' class='form-control' name='kadar_air' disabled>
+								<input type='text' class='form-control' name='kadar_air".$no."' disabled>
 							</td>
 							<td> <!-- hp SCRUBBER -->
-								<input type='text' class='form-control' name='hp_scrubber'>
+								<input type='text' class='form-control' name='hp_scrubber".$no."'>
 							</td>
 							<td> <!-- lp -->
-								<input type='text' class='form-control' name='lp'>
+								<input type='text' class='form-control' name='lp".$no."'>
 							</td>
 							<td> <!-- total -->
-								<input type='text' class='form-control' name='total' disabled>
+								<input type='text' class='form-control' name='total".$no."' disabled>
 							</td>
 							<td> <!-- thp -->
-								<input type='text' class='form-control' name='thp'>
+								<input type='text' class='form-control' name='thp".$no."'>
 							</td>
 							<td> <!-- fl -->
-								<input type='text' class='form-control' name='fl'>
+								<input type='text' class='form-control' name='fl".$no."'>
 							</td>
 							<td> <!-- chp -->
-								<input type='text' class='form-control' name='chp'>
+								<input type='text' class='form-control' name='chp".$no."'>
 							</td>
 							<td> <!-- temp -->
-								<input type='text' class='form-control' name='temp'>
+								<input type='text' class='form-control' name='temp".$no."'>
 							</td>		
 						</tr>
 						";
-
+						$id_liquid++;$id_gas++;$id_pt++;$no++;
 					}
 				echo "
 					<tr>

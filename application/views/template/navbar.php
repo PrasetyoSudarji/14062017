@@ -7,8 +7,23 @@
 				echo "<li class=";if($link=='home'){echo 'active';}echo "><a href='".base_url()."'><i class='fa fa-home' aria-hidden='true'></i> Home </a></li>";
 			}else{
 				echo "<li class=";if($link=='home'){echo 'active';}echo "><a href='".base_url()."index.php/menu'><i class='fa fa-home' aria-hidden='true'></i> Home </a></li>";
-        echo "<li class=";if($link=='laporan'){echo 'active';}echo "><a href='".base_url()."index.php/menu/laporan'><i class='fa fa-book' aria-hidden='true'></i> Laporan </a></li>";
-        echo "<li class=";if($link=='input_data'){echo 'active';}echo "><a href='".base_url()."index.php/data'><i class='fa fa-book' aria-hidden='true'></i> Input Data </a></li>";
+        echo "<li class='dropdown'>
+              <a class='dropdown-toggle' data-toggle='dropdown' href='#''><span class='fa fa-book'></span> 
+               Laporan <span class='caret'></span></a>
+                <ul class='dropdown-menu'>
+                  <li class=";if($link=='laporan_total'){echo 'active';}echo "><a href='".base_url()."index.php/menu/laporan_total'><i class='fa fa-book' aria-hidden='true'></i> Daily Production</a></li>
+                  <li class=";if($link=='laporan_sumur'){echo 'active';}echo "><a href='".base_url()."index.php/menu/laporan_sumur'><i class='fa fa-book' aria-hidden='true'></i> Daily Production (well) </a></li>
+                </ul>
+              </li>";
+        echo "<li class='dropdown'>
+              <a class='dropdown-toggle' data-toggle='dropdown' href='#''><span class='fa fa-edit'></span> 
+               Input <span class='caret'></span></a>
+                <ul class='dropdown-menu'>
+                  <li class=";if($link=='input_data'){echo 'active';}echo "><a href='".base_url()."index.php/data'><i class='fa fa-edit' aria-hidden='true'></i> Input Data </a></li>
+                  <li class=";if($link=='view_data'){echo 'active';}echo "><a href='".base_url()."index.php/menu/view_data'><i class='fa fa-search' aria-hidden='true'></i> View Data </a></li>
+                  <li class=";if($link=='edit_data'){echo 'active';}echo "><a href='".base_url()."index.php/menu/edit_data'><i class='fa fa-edit' aria-hidden='true'></i> Edit Data </a></li>
+                </ul>
+              </li>";
 			}
 	  ?>
       </ul>
@@ -27,9 +42,6 @@
               ?>
                </a>
                 <ul class="dropdown-menu">
-                  <?php
-                    echo "<li class=";if($link=='input_data'){echo 'active';}echo "><a href='".base_url()."index.php/data'><i class='fa fa-edit' aria-hidden='true'></i> Input Data </a></li>";
-                  ?>
                   <li><a href="<?=base_url()?>index.php/Logout" onclick="return confirm('Yakin akan keluar dari sistem?')"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
                 </ul>
               </li>

@@ -380,6 +380,31 @@
     ajaxRequest.send(null);
   }
 
+  function update_data(no,id_liquid,id_gas,id_pt,blpd,bopd,kadar_air,hp_scrubber,lp,total,thp,fl,chp,temp) {
+    var ajaxRequest;
+  
+    try {
+      ajaxRequest = new XMLHttpRequest(); //Opera 8.0+, Firefox, Safari
+    } catch(e) {
+      //Untuk IE
+      try {
+        ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
+      } catch(e) {
+        try {
+          ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
+        } catch(e) {
+          alert("Gagal karena browser anda tidak mendukung ajax");
+          return false;
+        }
+      }
+    }
+
+    var url="<?=base_url()?>index.php/data/update_data?id_liquid="+id_liquid+"&id_gas"+id_gas+"&id_pt"+id_pt+"&blpd"+blpd+"&bopd"+bopd+"&kadar_air"+kadar_air+"&hp_scrubber"+hp_scrubber+"&lp"+lp+"&total"+total+"&thp"+thp+"&fl"+fl+"&chp"+chp+"&temp"+temp;
+    
+    ajaxRequest.open("GET",url,true);
+    ajaxRequest.send(null);
+  }
+
   $(document).ready(function() {
     $('#list').DataTable();
   } );

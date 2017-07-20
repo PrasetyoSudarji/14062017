@@ -187,7 +187,6 @@ class Model extends CI_Model {
 							->from("submenu")
 							->where("status",$id)
 							->get();
-	
 	}
 
 	public function update($param_id, $id, $table, $data)
@@ -206,6 +205,14 @@ class Model extends CI_Model {
 	{	
 		return $data = $this->db->select("*")
 							->from("well")
+							->get();
+	
+	}
+
+	public function getTanggal()
+	{	
+		return $data = $this->db->select("tanggal")
+							->from("produksi_liquid")
 							->get();
 	
 	}

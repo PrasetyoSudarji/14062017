@@ -13,7 +13,6 @@ echo "<div id='produksi'>";
 	</ul>";
 
 	echo "<form method='POST' action='".base_url()."index.php/data/input_liquid'>";
-		$tab = "press_temp";
 
 		echo "<table class='table table-hover table-bordered'>
 			<thead >
@@ -159,7 +158,7 @@ echo "<div id='produksi'>";
 	</ul>";
 
 	echo "<form method='POST' action='".base_url()."index.php/data/input_gas'>";
-	$tab = "produksi_gas";	
+	
 	echo "<table class='table table-hover table-bordered'>
 			<thead >
 				<tr class='active'>
@@ -305,7 +304,7 @@ echo "<div id='produksi'>";
 	</ul>";
 
 	echo "<form method='POST' action='".base_url()."index.php/data/input_presstemp'>";	
-		$tab = "press_temp";
+	
 	echo "<table class='table table-hover table-bordered'>
 			<thead >
 				<tr class='active'>
