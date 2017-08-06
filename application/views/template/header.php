@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="<?=base_url()?>assets/bootstrap/css/bootstrap-modified.css">
     <link rel="stylesheet" href="<?=base_url()?>assets/bootstrap/css/login_modal.css">
     <link rel="stylesheet" href="<?=base_url()?>assets/bootstrap/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="<?=base_url()?>assets/bootstrap/css/bootstrap-switch.min.css">
+    <link rel="stylesheet" href="<?=base_url()?>assets/bootstrap/css/bootstrap-toggle.css">
 	<!--<link rel="stylesheet" href="<?=base_url()?>assets/bootstrap/css/bootstrap-container.css">-->
     <!-- jQuery library -->
     <script src="<?=base_url()?>assets/bootstrap/js/jquery.js"></script>
@@ -18,6 +20,11 @@
     <script src="<?=base_url()?>assets/bootstrap/js/bootstrap-datepicker.min.js"></script>
     <script src="<?=base_url()?>assets/dataTable/media/js/jquery.dataTables.min.js"></script>
     <script src="<?=base_url()?>assets/dataTable/media/js/dataTables.bootstrap.min.js"></script> 
+    <script src="<?=base_url()?>assets/bootstrap/js/bootstrap-switch.min.js"></script>
+    <script src="<?=base_url()?>assets/bootstrap/js/bootstrap-toggle.js"></script>
+    <script src="<?=base_url()?>assets/Highchart/js/highcharts.js"></script>
+    <script src="<?=base_url()?>assets/Highchart/js/highcharts-3d.js"></script>
+    <script src="<?=base_url()?>assets/Highchart/js/modules/exporting.js"></script>
     <!-- Other Library -->  
     <link rel="stylesheet" href="<?=base_url()?>assets/fontawesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?=base_url()?>assets/dataTable/media/css/dataTables.bootstrap.min.css">
@@ -29,6 +36,14 @@
     <link rel="stylesheet" href="<?=base_url()?>assets/resources/ol3-search-layer.min.css">
     <link rel="stylesheet" href="<?=base_url()?>assets/./resources/ol3-layerswitcher.css">
     <link rel="stylesheet" href="<?=base_url()?>assets/./resources/qgis2web.css">
+    <style type="text/css">
+      #container {
+        min-width: 310px;
+        max-width: 800px;
+        height: 400px;
+        margin: 0 auto
+      }
+    </style>
 
   </head>
   <body >
@@ -405,9 +420,52 @@
     ajaxRequest.send(null);
   }
 
+  function update_sumur(id) {
+    var ajaxRequest;
+  
+    try {
+      ajaxRequest = new XMLHttpRequest(); //Opera 8.0+, Firefox, Safari
+    } catch(e) {
+      //Untuk IE
+      try {
+        ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
+      } catch(e) {
+        try {
+          ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
+        } catch(e) {
+          alert("Gagal karena browser anda tidak mendukung ajax");
+          return false;
+        }
+      }
+    }
+
+    ajaxRequest.onreadystatechange = function() {
+      if (ajaxRequest.readyState == 4) {
+        var ajaxTampil = document.getElementById('sumurstats');
+        ajaxTampil.innerHTML = ajaxRequest.responseText;
+        //alert('update success!! ');
+        window.location.reload();
+      }
+    }
+
+    var url="<?=base_url()?>index.php/menu/proses_change_sumur/"+id;
+    
+    ajaxRequest.open("GET",url,true);
+    ajaxRequest.send(null);
+
+  }
+
   $(document).ready(function() {
     $('#list').DataTable();
+    $("[name='mycheckbox']").bootstrapSwitch({
+      disabled:false
+    });
+    $('#toggle-one').bootstrapToggle({
+      on: 'Active',
+      off: 'Dry'
+    });
   } );
- 
+
+  
 </script>
   

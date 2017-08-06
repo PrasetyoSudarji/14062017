@@ -17,11 +17,13 @@
               </li>";
         echo "<li class='dropdown'>
               <a class='dropdown-toggle' data-toggle='dropdown' href='#''><span class='fa fa-edit'></span> 
-               Input <span class='caret'></span></a>
+               Data <span class='caret'></span></a>
                 <ul class='dropdown-menu'>
                   <li class=";if($link=='input_data'){echo 'active';}echo "><a href='".base_url()."index.php/data'><i class='fa fa-edit' aria-hidden='true'></i> Input Data </a></li>
-                  <li class=";if($link=='view_data'){echo 'active';}echo "><a href='".base_url()."index.php/menu/view_data'><i class='fa fa-search' aria-hidden='true'></i> View Data </a></li>
+                  <li class=";if($link=='view_data'){echo 'active';}echo "><a href='".base_url()."index.php/menu/view_data/produksi_liquid'><i class='fa fa-search' aria-hidden='true'></i> View Data </a></li>
                   <li class=";if($link=='edit_data'){echo 'active';}echo "><a href='".base_url()."index.php/menu/edit_data'><i class='fa fa-edit' aria-hidden='true'></i> Edit Data </a></li>
+                  <li class=";if($link=='change_sumur'){echo 'active';}echo "><a href='".base_url()."index.php/menu/change_sumur'><i class='fa fa-edit' aria-hidden='true'></i> Change Sumur Stats</a></li>
+                  <li class=";if($link=='grafik'){echo 'active';}echo "><a href='".base_url()."index.php/menu/grafik'><i class='fa fa-search' aria-hidden='true'></i> Grafik </a></li>
                 </ul>
               </li>";
 			}

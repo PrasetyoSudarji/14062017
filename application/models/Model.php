@@ -303,4 +303,14 @@ class Model extends CI_Model {
 	
 	}
 
+	public function getReportOn($tahun)
+	{	
+		return $data = $this->db->select("*")
+							->from("report")
+							->where("id",$tahun)
+							->get();
+	
+	}
+
+
 }

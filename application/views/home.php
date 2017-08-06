@@ -104,9 +104,39 @@
 	</div>
 </div>
 	<?php
-	if ($_SESSION['login']!=null){
+	
 	echo "
 		<div class='container-fluid' style='background:#fff;margin-top:0px; padding-top:30px; padding-bottom:15px; border-bottom:solid thin #e8e8e8; box-shadow:         0px -6px 22px 0px rgba(0, 0, 0, 0.2); border-radius: 0px;'>
+			<div class='table-responsive'>
+		<table class='table table-hover table-bordered' width='100%'>
+        <thead>
+            <tr class='active'>
+                <th>Well Name</th>
+                ";
+                foreach ($sumur->result_array() as $key => $value) {
+                	# code...
+                	echo "<th>".$value['id']."</th>";
+                }
+        echo "</tr>
+        </thead>
+        <tbody>
+        	<tr>
+        		<th> <!-- SAS OIL (BOPD) -->
+        			Status
+        		</th>
+        		";
+                foreach ($sumur->result_array() as $key => $value) {
+                	# code...
+                	echo "<th>".$value['status']."</th>";
+                }
+        echo "
+        	</tr>
+        </tbody>
+	</table>
+	</div>
+		</div>
+		<div class='container-fluid' style='background:#fff;margin-top:0px; padding-top:30px; padding-bottom:15px; border-bottom:solid thin #e8e8e8; box-shadow:         0px -6px 22px 0px rgba(0, 0, 0, 0.2); border-radius: 0px;'>
+		<h3> Date Today : ".$today." </h3><br><br>
 		<div class='table-responsive'>
 		<table class='table table-hover table-bordered' width='100%'>
         <thead>
@@ -194,5 +224,4 @@
 	</div>
 	";
 	
-	}
 ?>

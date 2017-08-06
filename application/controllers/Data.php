@@ -59,8 +59,8 @@ class Data extends CI_Controller {
 				'id_pt' => $id_pt,
 				'sumur' => $sumur,
 				'session' => $_SESSION['login'],
-				'page' => 'input_data',
-				'link' => 'input_data'
+				'page' => 'input_datav2',
+				'link' => 'input_datav2'
 			);
 		}	
 		$this->load->view('template/wrapper', $data);
@@ -1695,22 +1695,10 @@ class Data extends CI_Controller {
 
 			$alert = "<script>
 						alert('update success!!');
+						window.location.href='".base_url()."index.php/menu/edit_data';
 						</script>";
 			
 			$data = array(
-				'id_liquid' => $id_liquid,
-				'id_gas' => $id_gas,
-				'id_pt' => $id_pt,
-				'blpd' => $blpd,
-				'bopd' => $bopd,
-				'kadar_air' => $kadar_air,
-				'hp_scrubber' => $hp_scrubber,
-				'lp' => $lp,
-				'total' => $total,
-				'thp' => $thp,
-				'fl' => $fl,
-				'chp' => $chp,
-				'temp' => $temp,
 				'alert' => $alert,
 				'session' => $_SESSION['login'],
 				'page' => 'notification',
